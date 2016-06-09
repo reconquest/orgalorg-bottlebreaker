@@ -5,19 +5,23 @@ echo finn
 echo sweet/bubblegum
 GUNTER
 
+:mock:template treetrunks <<TREETRUNKS
+#!/bin/bash
+
+echo ice/
+echo ice/king
+TREETRUNKS
+
 :allow-system-command cat
 
 :mock:template guntalina <<GUNTALINA
 #!/bin/bash
 
-echo guntalina args: "\${@}" >& 2
-
 cat >& 2
 GUNTALINA
 
-:mock:true treetrunks
-
 tests:ensure :bottlebreaker -a --sync
-tests:assert-stderr "guntalina args: -s /dev/stdin"
 tests:assert-stderr "finn"
 tests:assert-stderr "sweet/bubblegum"
+tests:assert-stderr "ice/"
+tests:assert-stderr "ice/king"

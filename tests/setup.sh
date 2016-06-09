@@ -18,6 +18,14 @@ tests:clone orgalorg-bottlebreaker bin/
     chmod +x bin/$1
 }
 
-:copy-system-command() {
+:mock:print-args() {
+    :mock:template "$1" <<MOCK
+#!/bin/bash
+
+echo $1 args: "\${@}" >& 2
+MOCK
+}
+
+:allow-system-command() {
     ln -sf "$(which $1)" bin/$1
 }
