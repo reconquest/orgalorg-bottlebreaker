@@ -10,7 +10,7 @@ import (
 	"github.com/seletskiy/hierr"
 )
 
-const version = "1.0"
+var version = "1.0"
 
 const usage = `orgalorg-bottlebreaker - based on gunter sync tool for orgalorg.
 
