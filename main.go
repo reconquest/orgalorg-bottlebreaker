@@ -29,9 +29,10 @@ orgalorg-bottlebreaker will run three tools in sequence:
 Tool expects valid orgalorg sync protocol to be received on stdin.
 
 Usage:
-    orgalorg-bottlebreaker -h | --help
     orgalorg-bottlebreaker --check-deps
     orgalorg-bottlebreaker [options] [--sync]
+    orgalorg-bottlebreaker --version
+    orgalorg-bottlebreaker -h | --help
 
 Options:
     -h --help                   Show this help.
@@ -50,6 +51,7 @@ Options:
     -v --verbose                Print debug information.
     --sync                      Run sync tools as described.
     --check-deps                Check dependencies and exit.
+    --version                   Show program version.
 `
 
 var (
