@@ -27,5 +27,13 @@ MOCK
 }
 
 :allow-system-command() {
-    ln -sf "$(which $1)" bin/$1
+    local path="$(which "$1")"
+
+    if [ ! "$path" ]; then
+        printf "[mock] can't allow system command '%s' for use, "\
+            "because it's not found" "$1"
+        exit 1
+    fi
+
+    ln -sf "$path" bin/$1
 }
